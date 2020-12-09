@@ -155,7 +155,7 @@ body {
     transform: translateY(-5%);
 }
 
-.shelves img {
+.shelves-img {
     width: 100%;
 }
 
@@ -240,4 +240,58 @@ body {
 
 .pen4:hover {
     transform: translateY(-10%);
+}
+
+.clock {
+    position: absolute;
+    left: 42%;
+    top: 13.8%;
+    width: 9%;
+    height: 9.2%;
+}
+
+.clock-hands {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.clock-minute-hand, .clock-hour-hand, .clock-second-hand, .clock-middle-pin {
+    position: absolute;
+    bottom: 50%;
+    left: 49%;
+    border-radius: 50%;
+    transform-origin: bottom;
+}
+
+.clock-minute-hand {
+    --rotate: 0;
+    width: 3%;
+    height: 40%;
+    transform: translateX(-50%) rotate(calc(var(--rotate) * 1deg));
+    background-color: black;
+}
+
+.clock-hour-hand {
+    --rotate: 0;
+    width: 5%;
+    height: 30%;
+    background-color: #ff6766;
+    transform: translateX(-50%) rotate(calc(var(--rotate) * 1deg));
+}
+
+.clock-second-hand {
+    --rotate: 0;
+    width: 1%;
+    height: 40%;
+    background-color: black;
+    transform: translateX(-50%) rotate(calc(var(--rotate) * 1deg));
+}
+
+.clock-middle-pin {
+    height: 5%;
+    width: 5%;
+    background-color: black;
+    border-radius: 100%;
+    transform: translate(-50%,35%);
 }
