@@ -180,7 +180,7 @@ body {
     border-radius: 10%;
 }
 
-.desktop-icon-box:hover, .folder-icon-box:hover {
+.desktop-icon-box:hover, .folder-icon-box:hover, .page-icon-box:hover {
     background-color: #70d4df;
 }
 
@@ -234,8 +234,50 @@ body {
     font-weight: 800;
 }
 
+.google {
+    background-color: whitesmoke;
+}
+
+.web-address {
+    width: 60%;
+    margin: 1% auto;
+    padding: 1% 0;
+    text-align: center;
+    border-radius: 1vw;
+    background-color: white;
+    font-size: max(10px,1vw);
+    font-weight: 600;
+}
+
+.links {
+    margin: 5% auto;
+    text-align: center;
+}
+
+.page-icon-box {
+    display: inline-block;
+    margin-right: 15%;
+    width: 15%;
+    padding: 1%;
+    border-radius: 10%;
+}
+
+.page-icon-box:last-child {
+    margin-right: 0;
+}
+
+.page-icon-img {
+    width: 100%;
+}
+
+.page-icon-box p {
+    font-size: max(10px,0.8vw);
+    font-weight: 800;
+}
+
 .window-path {
     font-size: max(10px,1vw);
+    font-weight: 600;
     border-bottom: 0.1vh solid #5cbfca;
     display: block;
     padding: 1% 0 1% 4%;
