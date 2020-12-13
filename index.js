@@ -4,8 +4,8 @@ class Clock {
     getTime() {
         let currentDate = new Date()
 
-        this.hours = ("0" + currentDate.getHours()).slice(-2)
-        this.minutes = ("0" + currentDate.getMinutes()).slice(-2)
+        this.hours = currentDate.getHours()
+        this.minutes = currentDate.getMinutes()
         this.seconds = currentDate.getSeconds()
         this.days = ("0" + currentDate.getDate()).slice(-2)
         this.months = ("0" + (currentDate.getMonth() + 1)).slice(-2)
@@ -20,7 +20,11 @@ class Clock {
         this.setRotation(".clock-second-hand", secondsRatio)
         this.setRotation(".clock-minute-hand", minutesRatio)
         this.setRotation(".clock-hour-hand", hoursRatio)
-        $(".toolbar-clock").text(this.hours + ":" + this.minutes)
+        
+        let hoursString = ("0" + this.hours).slice(-2)
+        let minutesString = ("0" + this.minutes).slice(-2)
+
+        $(".toolbar-clock").text(hoursString + ":" + minutesString)
         $(".date").text(this.days + "." + this.months + "." + this.years + ".")
     }
 
@@ -134,7 +138,7 @@ class Windows {
                     break;
     
                 case "linkedin":
-                    window.open("https://github.com/Bippserino","_blank")
+                    window.open("https://www.linkedin.com/in/bojan-mandi%C4%87/","_blank")
                     break;
             }
         })
@@ -171,7 +175,7 @@ class Desktop {
             }
     
             if (iconPath === "pdf") {
-                window.open("https://drive.google.com/file/d/1Lksm5Z0q2RS_O4w9n68WfkYlq1NSeVUS/view?usp=sharing","_blank")
+                window.open("https://drive.google.com/file/d/15oWkzVvhHAk6EkSTOk72_k2blRzVCIoF/view?usp=sharing","_blank")
             }
         })
     }
