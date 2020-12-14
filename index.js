@@ -175,12 +175,12 @@ class Windows {
             Windows.typingAnimation()
         })
 
-        $(".desktop").on("tap",() => {
+        $(".screen-window").on("tap",() => {
             for (let i = 0; i < 28; i++) {
                 setTimeout(Windows.typingAnimation, 300)
                 
             }
-            $(".desktop").off("tap")
+            $(".screen-window").off("tap")
         })
     }
 
