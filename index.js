@@ -175,12 +175,14 @@ class Windows {
             let wantedString = "getPythonSkillLevel(\"Bojan\")"
             let responses = ['Swapping time and space...', 'Trying to hack Rock\'s Instagram account...', 'Trying to find Waldo...', 'Downloading more RAM...']
             let afterResponses =['Converting matter to energy... ' , 'HaircutError: \'hair\' is not defined. ', 'Don\'t rush me, it\'s realy hard. OK?! ', 'Just kidding. Deleting Sys32. ']
-            let randomChoice = Math.floor(Math.random() * 3);
 
             $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
             pythonFunctionAnimationIndex++
-            console.log("A")
+            
             if (pythonFunctionAnimationIndex == wantedString.length + 1) {
+                $(".icon-box").off("click")
+                let randomChoice = Math.floor(Math.random() * 4);
+                console.log(randomChoice)
                 $(".shell-response").append("Getting all perimiters... ")
                 setTimeout(() => {
                     $(".shell-response").append(responses[randomChoice])
@@ -194,6 +196,7 @@ class Windows {
                     $(".cursor").remove()
                     $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
                     setInterval(Windows.toggleCursor(), 500)
+                    Toolbar.toolbarIconEL()
                 },3000)
                 
             }
