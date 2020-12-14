@@ -170,37 +170,49 @@ class Windows {
         $(".cursor").toggle("hidden")
     }
 
-    static typingAnimation() {
+    static typingAnimationEL() {
         $("body").keypress(() => {
-            let wantedString = "getPythonSkillLevel(\"Bojan\")"
-            let responses = ['Swapping time and space...', 'Trying to hack Rock\'s Instagram account...', 'Trying to find Waldo...', 'Downloading more RAM...']
-            let afterResponses =['Converting matter to energy... ' , 'HaircutError: \'hair\' is not defined. ', 'Don\'t rush me, it\'s realy hard. OK?! ', 'Just kidding. Deleting Sys32. ']
+            Windows.typingAnimation()
+        })
 
-            $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
-            pythonFunctionAnimationIndex++
-            
-            if (pythonFunctionAnimationIndex == wantedString.length + 1) {
-                $(".icon-box").off("click")
-                let randomChoice = Math.floor(Math.random() * 4);
-                console.log(randomChoice)
-                $(".shell-response").append("Getting all perimiters... ")
-                setTimeout(() => {
-                    $(".shell-response").append(responses[randomChoice])
-                }, 1000)
-                setTimeout(() => {
-                    $(".shell-response").append(afterResponses[randomChoice])
-                }, 2000)
-                setTimeout(() => {
-                    $(".shell-response").append(`<span class="skill-level">Current Python Skill Level: 3 - intermediate</span>`)
-                    $("body").off("keypress")
-                    $(".cursor").remove()
-                    $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
-                    setInterval(Windows.toggleCursor(), 500)
-                    Toolbar.toolbarIconEL()
-                },3000)
+        $(".desktop").on("tap",() => {
+            for (let i = 0; i < 28; i++) {
+                setTimeout(Windows.typingAnimation, 300)
                 
             }
+            $(".desktop").off("tap")
         })
+    }
+
+    static typingAnimation() {
+        let wantedString = "getPythonSkillLevel(\"Bojan\")"
+        let responses = ['Swapping time and space...', 'Trying to hack Rock\'s Instagram account...', 'Trying to find Waldo...', 'Downloading more RAM...']
+        let afterResponses =['Converting matter to energy... ' , 'HaircutError: \'hair\' is not defined. ', 'Don\'t rush me, it\'s realy hard. OK?! ', 'Just kidding. Deleting Sys32. ']
+
+        $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
+        pythonFunctionAnimationIndex++
+        
+        if (pythonFunctionAnimationIndex == wantedString.length + 1) {
+            $(".icon-box").off("click")
+            let randomChoice = Math.floor(Math.random() * 4);
+            console.log(randomChoice)
+            $(".shell-response").append("Getting all perimiters... ")
+            setTimeout(() => {
+                $(".shell-response").append(responses[randomChoice])
+            }, 1000)
+            setTimeout(() => {
+                $(".shell-response").append(afterResponses[randomChoice])
+            }, 2000)
+            setTimeout(() => {
+                $(".shell-response").append(`<span class="skill-level">Current Python Skill Level: 3 - intermediate</span>`)
+                $("body").off("keypress")
+                $(".cursor").remove()
+                $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
+                setInterval(Windows.toggleCursor(), 500)
+                Toolbar.toolbarIconEL()
+            },3000)
+            
+        }
     }
     
 }
@@ -224,7 +236,7 @@ class Toolbar {
                 Windows.addPythonWindow()
                 var cursor = setInterval(Windows.toggleCursor, 500)
                 Windows.addExitWindowEL()
-                Windows.typingAnimation()
+                Windows.typingAnimationEL()
             }
         })
     }
