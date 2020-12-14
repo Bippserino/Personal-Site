@@ -115,7 +115,7 @@ class Windows {
                 <img src="img/exit.svg" alt="exit" class="exit-icon">
             </div>
             <p class="python-version">Python 3.7.4. Type "help", "copyright", "credits" or "license()" for more information.</p>
-            <p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>
+            <p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function">Type something: </span><div class="cursor">|</div></p>
             <p class="shell-response"></p>
             </div>`)
     }
@@ -172,15 +172,30 @@ class Windows {
 
     static typingAnimation() {
         $("body").keypress(() => {
-            let wantedString = "getPythonSkillLevel()"
+            let wantedString = "getPythonSkillLevel(\"Bojan\")"
+            let responses = ['Swapping time and space...', 'Trying to hack Rock\'s Instagram account...', 'Trying to find Waldo...', 'Downloading more RAM...']
+            let afterResponses =['Converting matter to energy... ' , 'HaircutError: \'hair\' is not defined. ', 'Don\'t rush me, it\'s realy hard. OK?! ', 'Just kidding. Deleting Sys32. ']
+            let randomChoice = Math.floor(Math.random() * 3);
+
             $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
             pythonFunctionAnimationIndex++
+            console.log("A")
             if (pythonFunctionAnimationIndex == wantedString.length + 1) {
-                $(".shell-response").append("Current Python Skill Level: 3 - intermediate")
-                $("body").off("keypress")
-                $(".cursor").remove()
-                $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
-                setInterval(Windows.toggleCursor(), 500)
+                $(".shell-response").append("Getting all perimiters... ")
+                setTimeout(() => {
+                    $(".shell-response").append(responses[randomChoice])
+                }, 1000)
+                setTimeout(() => {
+                    $(".shell-response").append(afterResponses[randomChoice])
+                }, 2000)
+                setTimeout(() => {
+                    $(".shell-response").append(`<span class="skill-level">Current Python Skill Level: 3 - intermediate</span>`)
+                    $("body").off("keypress")
+                    $(".cursor").remove()
+                    $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
+                    setInterval(Windows.toggleCursor(), 500)
+                },3000)
+                
             }
         })
     }
@@ -191,6 +206,7 @@ class Toolbar {
     static toolbarIconEL() {
         $(".icon-box").click((event) => {
             pythonFunctionAnimationIndex = 0
+            $("body").off("keypress")
             $(".active-icon").removeClass("active-icon")
             $(event.currentTarget).addClass("active-icon")
             $(".screen-window").remove()
@@ -224,7 +240,7 @@ class Desktop {
             }
     
             if (iconPath === "pdf") {
-                window.open("https://drive.google.com/file/d/15oWkzVvhHAk6EkSTOk72_k2blRzVCIoF/view?usp=sharing","_blank")
+                window.open("https://drive.google.com/file/d/1861EsTNRAAiWFO9TZ9CmIFxO7n1a7Lfd/view?usp=sharing","_blank")
             }
         })
     }
