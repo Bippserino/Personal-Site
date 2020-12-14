@@ -1,3 +1,7 @@
+var pythonFunctionAnimationIndex = 0
+
+
+
 class Clock {
     years; months; days; hours; minutes; seconds;
 
@@ -53,6 +57,9 @@ class Animations {
 class Windows {
     static addGoogleWindow() {
         $(".desktop").append(`<div class="screen-window google"><div class="window-head">
+                <div class="window-logo">
+                    <img src="img/chrome.svg">
+                </div>
                 <p class="window-title">Google Chrome</p>
                 <img src="img/exit.svg" alt="exit" class="exit-icon">
             </div>
@@ -99,12 +106,27 @@ class Windows {
         </div>`)
     }
 
+    static addPythonWindow() {
+        $(".desktop").append(`<div class="screen-window python-window"><div class="window-head">
+                <div class="window-logo">
+                    <img src="img/python.svg">
+                </div>
+                <p class="window-title">Python</p>
+                <img src="img/exit.svg" alt="exit" class="exit-icon">
+            </div>
+            <p class="python-version">Python 3.7.4. Type "help", "copyright", "credits" or "license()" for more information.</p>
+            <p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>
+            <p class="shell-response"></p>
+            </div>`)
+    }
+
     static addExitWindowEL() {
         $(".exit-icon").click(() => {
             $(".screen-window").remove()
             $(".active-icon").removeClass("active-icon")
             $(".icon-box:last-child").remove()
             $(".windows").addClass("active-icon")
+            pythonFunctionAnimationIndex = 0
         })
     }
 
@@ -143,12 +165,32 @@ class Windows {
             }
         })
     }
+
+    static toggleCursor() {
+        $(".cursor").toggle("hidden")
+    }
+
+    static typingAnimation() {
+        $("body").keypress(() => {
+            let wantedString = "getPythonSkillLevel()"
+            $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
+            pythonFunctionAnimationIndex++
+            if (pythonFunctionAnimationIndex == wantedString.length + 1) {
+                $(".shell-response").append("Current Python Skill Level: 3 - intermediate")
+                $("body").off("keypress")
+                $(".cursor").remove()
+                $(".python-window").append(`<p class="python-shell"><span class="shell-arrows">>>></span><span class="shell-function"></span><div class="cursor">|</div></p>`)
+                setInterval(Windows.toggleCursor(), 500)
+            }
+        })
+    }
     
 }
 
 class Toolbar {
     static toolbarIconEL() {
         $(".icon-box").click((event) => {
+            pythonFunctionAnimationIndex = 0
             $(".active-icon").removeClass("active-icon")
             $(event.currentTarget).addClass("active-icon")
             $(".screen-window").remove()
@@ -157,6 +199,13 @@ class Toolbar {
                 Windows.addGoogleWindow()
                 Windows.addExitWindowEL()
                 Windows.chromeEL()
+            }
+
+            else if (event.currentTarget.classList[1] === "python") {
+                Windows.addPythonWindow()
+                var cursor = setInterval(Windows.toggleCursor, 500)
+                Windows.addExitWindowEL()
+                Windows.typingAnimation()
             }
         })
     }

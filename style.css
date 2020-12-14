@@ -219,6 +219,51 @@ body {
     text-align: center;
 }
 
+.window-logo {
+    position: absolute;
+    left: 1%;
+    top: 2%;
+    width: 6%;
+}
+
+.window-logo img {
+    width: 100%;
+}
+
+.python-window {
+    background-color: #1e4b68;
+    font-size: max(10px,1vw);
+    font-weight: 800;
+}
+
+.python-version {
+    color: white;
+    margin: 1% 0;
+}
+
+.python-shell {
+    color: white;
+    display: inline-block;
+    height: 5%;
+    padding: 2% 0;
+}
+
+.shell-arrows  {
+    color: #ff6766;
+
+}
+
+.cursor {
+    color: white;
+    display: inline-block;
+}
+
+.shell-response {
+    margin-top: 1%;
+    margin-left: 1%;
+    color: #8fcff1;
+}
+
 .exit-icon {
     position: absolute;
     width: 6%;
@@ -635,6 +680,10 @@ body {
 
 .chair-img {
     width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 @keyframes swing {
