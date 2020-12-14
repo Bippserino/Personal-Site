@@ -175,12 +175,12 @@ class Windows {
             Windows.typingAnimation()
         })
 
-        $(".screen-window").on("tap",() => {
-            for (let i = 0; i < 28; i++) {
-                setTimeout(Windows.typingAnimation, 300)
-                
+        $(".screen-window").on("click",() => {
+            $(".screen-window").off("click")
+            for (let i = 1; i < 30; i++) {
+                setTimeout(Windows.typingAnimation, i * 200)
             }
-            $(".screen-window").off("tap")
+            
         })
     }
 
@@ -191,7 +191,6 @@ class Windows {
 
         $(".python-shell").append(wantedString[pythonFunctionAnimationIndex])
         pythonFunctionAnimationIndex++
-        
         if (pythonFunctionAnimationIndex == wantedString.length + 1) {
             $(".icon-box").off("click")
             let randomChoice = Math.floor(Math.random() * 4);
