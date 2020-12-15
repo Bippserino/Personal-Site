@@ -1,6 +1,5 @@
 var pythonFunctionAnimationIndex = 0
-
-
+var lampStatus = 0
 
 class Clock {
     years; months; days; hours; minutes; seconds;
@@ -51,6 +50,13 @@ class Animations {
         $(".picture-on-wall").bind('webkitAnimationEnd mozAnimationEnd animationEnd', function() {
             $(this).removeClass("animation-swing");
         });
+    }
+
+    static toggleLampLight() {
+        $(".lamp-switch").click(() => {
+            lampStatus = 1 - lampStatus
+            $(".lamp-light").css("width",`calc(11% * ${lampStatus})`)
+        })
     }
 }
 
@@ -176,9 +182,10 @@ class Windows {
         })
 
         $(".screen-window").on("click",() => {
+
             $(".screen-window").off("click")
             for (let i = 1; i < 30; i++) {
-                setTimeout(Windows.typingAnimation, i * 200)
+                setTimeout(Windows.typingAnimation, i * 100)
             }
             
         })
@@ -286,6 +293,7 @@ $(document).ready(function() {
     }, 1000)
 
     Animations.swingAnimation()
+    Animations.toggleLampLight()
 
     iconEL()
 

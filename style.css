@@ -656,6 +656,7 @@ body {
     width: 15%;
     bottom: 35%;
     left: 15%;
+    z-index: 6;
 }
 
 .lamp-img {
@@ -667,6 +668,34 @@ body {
     bottom: 37.5%;
     left: 13.5%;
     width: 4.9%;
+}
+
+.lamp-light {
+    position: absolute;
+    width: 0%;
+    top: 39%;
+    left: 22.8%;
+    z-index: 5;
+}
+
+.lamp-light-img {
+    width: 100%;
+}
+
+.lamp-switch {
+    position: absolute;
+    width: 37%;
+    height: 15%;
+    bottom: 0;
+    left: 17%;
+}
+
+.turn-on-lamp {
+    animation: turnOnLamp 0.2s;
+}
+
+.turn-off-lamp {
+    animation: turnOffLamp 0.2s;
 }
 
 .chair {
@@ -705,5 +734,17 @@ body {
 
     100% {
         transform: rotate(0);
+    }
+}
+
+@keyframes turnOnLamp {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes turnOffLamp {
+    100% {
+        opacity: 0;
     }
 }
