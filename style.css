@@ -751,6 +751,7 @@ body {
     width: 25%;
     left: 25%;
     top: 25%;
+    transition: 0.3s;
 }
 
 @keyframes swing {
