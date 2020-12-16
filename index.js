@@ -62,8 +62,9 @@ class Animations {
     static moveMouse() {
         $(".monitor-screen").mousemove((event) => {
             let screenOffset = $(".monitor-screen").offset()
-            let screenTop = screenOffset.top
-            let screenLeft = screenOffset.left
+            let screenTop = screenOffset.top - $(document).scrollTop()
+            let screenLeft = screenOffset.left - $(document).scrollLeft()
+            
             let screenWidth = $(".monitor-screen").width()
             let screenHeight = $(".monitor-screen").height()
 
