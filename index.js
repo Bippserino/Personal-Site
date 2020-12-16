@@ -69,7 +69,7 @@ class Animations {
 
             let mousePositionTop = ((event.clientY - screenTop) / screenHeight) * 100
             let mousePositionLeft = ((event.clientX - screenLeft) / screenWidth) * 100
-            $(".mouse-img").css({"top": `${Math.min(Math.max(mousePositionTop, 8), 40)}%`, "left": `${Math.min(Math.max(mousePositionLeft, 20), 56)}%`})
+            $(".mouse-img").css({"top": `${mousePositionTop}%`, "left": `calc(${mousePositionLeft + 0.2 * mousePositionTop}%`})
         })
     }
 }
