@@ -64,12 +64,13 @@ class Animations {
             let screenOffset = $(".monitor-screen").offset()
             let screenTop = screenOffset.top - $(document).scrollTop()
             let screenLeft = screenOffset.left - $(document).scrollLeft()
-            
+
             let screenWidth = $(".monitor-screen").width()
             let screenHeight = $(".monitor-screen").height()
 
             let mousePositionTop = ((event.clientY - screenTop) / screenHeight) * 100
             let mousePositionLeft = ((event.clientX - screenLeft) / screenWidth) * 100
+            $(".mouse-img").css("transform",`scale(${(mousePositionTop / 100) * 0.3  + 1})`)
             $(".mouse-img").css({"top": `${mousePositionTop}%`, "left": `calc(${mousePositionLeft + 0.2 * mousePositionTop}%`})
         })
     }
