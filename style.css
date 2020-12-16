@@ -734,10 +734,10 @@ body {
 
 .mouse-box {
     position: absolute;
-    bottom: 31%;
+    bottom: 32%;
     right: 15%;
     width: 12%;
-    height: 4%;
+    height: 3%;
 }
 
 .mouse-movement-box {
@@ -746,7 +746,7 @@ body {
     height: 100%;
 }
 
-.mouse-img {
+.mouse {
     position: absolute;
     width: 40%;
     left: 100%;
@@ -754,6 +754,13 @@ body {
     transition: 0.2s;
     transform: scale(1.3);
 }
+
+.mouse-img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 
 @keyframes swing {
     20% {
