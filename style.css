@@ -395,7 +395,7 @@ body {
     position: absolute;
     width: 50%;
     left: 50%;
-    bottom: 14%;
+    bottom: 10%;
     transform: translate(-38%,-85%);
 }
 
@@ -760,7 +760,6 @@ body {
     top: 0;
     width: 100%;
 }
-
 
 @keyframes swing {
     20% {
