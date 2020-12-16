@@ -58,6 +58,20 @@ class Animations {
             $(".lamp-light").css("width",`calc(11% * ${lampStatus})`)
         })
     }
+
+    static moveMouse() {
+        $(".monitor-screen").mousemove((event) => {
+            let screenOffset = $(".monitor-screen").offset()
+            let screenTop = screenOffset.top
+            let screenLeft = screenOffset.left
+            let screenWidth = $(".monitor-screen").width()
+            let screenHeight = $(".monitor-screen").height()
+
+            let mousePositionTop = ((event.clientY - screenTop) / screenHeight) * 100
+            let mousePositionLeft = ((event.clientX - screenLeft) / screenWidth) * 100
+            $(".mouse-img").css({"top": `${Math.min(Math.max(mousePositionTop, 8), 40)}%`, "left": `${Math.min(Math.max(mousePositionLeft, 20), 56)}%`})
+        })
+    }
 }
 
 class Windows {
@@ -294,6 +308,7 @@ $(document).ready(function() {
 
     Animations.swingAnimation()
     Animations.toggleLampLight()
+    Animations.moveMouse()
 
     iconEL()
 
