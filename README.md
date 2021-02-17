@@ -1,3 +1,3 @@
 # Personal-Site
-Interactive CV currently being bulit. 
+Interactive CV (not finished). 
 [Git Pages](https://bippserino.github.io/Personal-Site/)
